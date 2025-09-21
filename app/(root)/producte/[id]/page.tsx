@@ -7,13 +7,9 @@ import ProductRating from '../../../../components/single-product/ProductRating';
 import { formatCurrency } from '../../../../utils/format';
 import AddToCart from '../../../../components/single-product/AddToCart';
 
-interface PropsPage  {
-  params: {
-    id: string;
-  };
-}
 
-async function productsDetailsPage({params}: PropsPage) {
+
+async function productsDetailsPage({params}:any) {
 
     const { id } = params ;
 
