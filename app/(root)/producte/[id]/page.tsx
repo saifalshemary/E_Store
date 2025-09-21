@@ -7,15 +7,15 @@ import ProductRating from '../../../../components/single-product/ProductRating';
 import { formatCurrency } from '../../../../utils/format';
 import AddToCart from '../../../../components/single-product/AddToCart';
 
-interface PropsPage{
+interface PageProps {
   params: {
     id: string;
-  }
+  };
 }
 
-async function productsDetailsPage({params}:PropsPage) {
+async function productsDetailsPage({params}:PageProps ) {
 
-    const { id } =  params ;
+    const { id } = params ;
 
     const product = await fetchSinglProducts({productID:  id});
 
