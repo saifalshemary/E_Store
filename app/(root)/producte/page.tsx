@@ -1,17 +1,20 @@
 import React from 'react';
 import ProductsContainer from '../../../components/products/productsContainer';
-import { Layout } from 'lucide-react';
 
 
+interface PropsPage{
+  searchParams: {
+    layout?: string;
+    search: string;
+  }
+}
 
+async function ProductePage({searchParams}:PropsPage) {
 
-
-async function ProductePage({searchParams}:any) {
-
-  const {layout = 'grid'} = await searchParams
+  const {layout = 'grid'} = await searchParams;
   const {search} = await searchParams || '';
 
-
+  console.log(typeof search)
 
   return (
     <div>

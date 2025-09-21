@@ -35,4 +35,3 @@ return(
 
 }
 
-function LodingProducts(){}

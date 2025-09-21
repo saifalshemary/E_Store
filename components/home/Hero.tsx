@@ -19,7 +19,7 @@ function Hero() {
         </p>
 
         <Button asChild className='mt-8 text-white bg-blue-500' size={'lg'}>
-            <Link href={'/products'}>
+            <Link href={'/producte'}>
                 Our Products
             </Link>
         </Button>
