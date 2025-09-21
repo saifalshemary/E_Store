@@ -3,16 +3,10 @@ import ProductsContainer from '../../../components/products/productsContainer';
 import { Layout } from 'lucide-react';
 
 
-interface productsPageParams {
-  searchParams:{
-    layout:string
-    search:string
-    
-  }
-}
 
 
-async function ProductePage({searchParams}:productsPageParams) {
+
+async function ProductePage({searchParams}:any) {
 
   const {layout = 'grid'} = await searchParams
   const {search} = await searchParams || '';

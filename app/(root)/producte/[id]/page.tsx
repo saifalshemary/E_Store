@@ -6,11 +6,8 @@ import FavoriteToggleButton from '../../../../components/products/FavoriteToggle
 import ProductRating from '../../../../components/single-product/ProductRating';
 import { formatCurrency } from '../../../../utils/format';
 import AddToCart from '../../../../components/single-product/AddToCart';
-interface Params {
-    id:string
-}
 
-async function productsDetailsPage({params}:{params:Params}) {
+async function productsDetailsPage({params}:any) {
 
     const { id } =  params ;
 
