@@ -1,12 +1,15 @@
 import React from 'react';
 import ProductsContainer from '../../../components/products/productsContainer';
-import { SearchParams } from 'next/dist/server/request/search-params';
 
 
 
+type Props= {
+  layout?: 'grid' | 'list';
+  search?: string;
+}
 
 
-async function ProductePage({searchParams}:any) {
+async function ProductePage({searchParams}:{searchParams:Props}) {
 
   const {layout = 'grid' , search = ''} = await searchParams ||{};
   

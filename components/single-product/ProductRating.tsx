@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ProductRating({Product}:{Product:string}) {
+function ProductRating({productID}:{productID:string}) {
   const rating =4.2;
   const reviews =42;
   const ReviewsText = `(${reviews} Reviews)`
