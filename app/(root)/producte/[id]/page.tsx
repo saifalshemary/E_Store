@@ -5,7 +5,7 @@ import Image from 'next/image';
 import FavoriteToggleButton from '../../../../components/products/FavoriteToggleButton';
 import ProductRating from '../../../../components/single-product/ProductRating';
 import { formatCurrency } from '../../../../utils/format';
-import AddtoCart from '../../../../components/single-product/AddtoCart';
+import AddToCart from '../../../../components/single-product/AddtoCart';
 
 type PageProps = {
   params: Promise<{
@@ -44,7 +44,7 @@ async function productsDetailsPage({params}:PageProps) {
         <ProductRating productID={product.name}/>
         <h4 className='text-md p-2 mt-3 rouned-md bg-muted inline-block'>{Price}</h4> 
         <p className='mt-6 text-md leading-8'>{product.description}</p>
-        <AddtoCart productID={product.id}/>
+        <AddToCart productID={product.id}/>
         </div>
       </section>
     </section>
