@@ -5,7 +5,7 @@ import Image from 'next/image';
 import FavoriteToggleButton from '../../../../components/products/FavoriteToggleButton';
 import ProductRating from '../../../../components/single-product/ProductRating';
 import { formatCurrency } from '../../../../utils/format';
-import AddtoCart from '@/components/single-product/AddtoCart';
+import AddtoCart from '../../../../components/single-product/AddtoCart';
 
 type PageProps = {
   params: Promise<{
