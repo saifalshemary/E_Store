@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductsContainer from '../../../components/products/productsContainer';
+import { SearchParams } from 'next/dist/server/request/search-params';
 
 
 
@@ -21,3 +22,4 @@ async function ProductePage({searchParams}:any) {
 }
 
 export default ProductePage
+
