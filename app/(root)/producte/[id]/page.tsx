@@ -17,10 +17,10 @@ async function productsDetailsPage({params}:PageProps) {
 
     const { id } = await params ;
 
-    console.log(typeof id)
+    
     const product = await fetchSinglProducts( id);
     const Price = formatCurrency(product.price);
-
+    console.log(product)
   return (
     <section>
       <BrandCrumbs name={product.name}/>
