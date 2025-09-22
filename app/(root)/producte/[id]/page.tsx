@@ -8,14 +8,14 @@ import { formatCurrency } from '../../../../utils/format';
 import AddToCart from '../../../../components/single-product/AddToCart';
 
 
-
 async function productsDetailsPage({params}:any) {
 
-    const { id } = params ;
+    const { id } = await params ;
 
-    const product = await fetchSinglProducts({productID:  id});
-
+    
+    const product = await fetchSinglProducts( id);
     const Price = formatCurrency(product.price);
+
   return (
     <section>
       <BrandCrumbs name={product.name}/>
@@ -29,6 +29,7 @@ async function productsDetailsPage({params}:any) {
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw , 33vw'
           className='w-full rounded-md object-cover'/>
         </div>
+
         <div >
           <div className='flex gap-x-8 items-center'>
             <h2 className='text-3xl capitalize font-bold'>{product.name}</h2>
