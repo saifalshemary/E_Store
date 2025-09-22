@@ -1,49 +1,59 @@
-import React from 'react'
-import {fetchSinglProducts} from '../../../../utils/actions';
-import BrandCrumbs from '../../../../components/single-product/BrandCrumbs';
+import FavoriteToggleButton from '@/components/prodcuts/FavoriteToggleButton';
+import AddtoCart from '@/components/single-prodcut/AddtoCart';
+import BreadCrumbs from '@/components/single-prodcut/BreadCrumbs';
+import ProductRating from '@/components/single-prodcut/ProductRating';
+import { fetchSingleProduct } from '@/utils/actions';
+import { formatCurrency } from '@/utils/format';
 import Image from 'next/image';
-import FavoriteToggleButton from '../../../../components/products/FavoriteToggleButton';
-import ProductRating from '../../../../components/single-product/ProductRating';
-import { formatCurrency } from '../../../../utils/format';
-import AddToCart from '../../../../components/single-product/AddToCart';
+import React from 'react';
 
 
-async function productsDetailsPage({params}:any) {
 
-    const { id } = await params ;
+async function ProductDetailsPage({ params }:  any) {
+  const { id } = await params;
+  
+  try {
+    const product = await fetchSingleProduct(id);
+    const dollarAmount = formatCurrency(product.price);
 
-    
-    const product = await fetchSinglProducts( id);
-    const Price = formatCurrency(product.price);
-
-  return (
-    <section>
-      <BrandCrumbs name={product.name}/>
-      <section className='grid lg:grid-cols-2 gap-y-6 mt-6 lg:gap-x-12' >
-        <div className='relative h-full '>
-          <Image 
-          src={product.image}
-          alt={product.name}
-          fill
-          priority
-          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw , 33vw'
-          className='w-full rounded-md object-cover'/>
-        </div>
-
-        <div >
-          <div className='flex gap-x-8 items-center'>
-            <h2 className='text-3xl capitalize font-bold'>{product.name}</h2>
-            <FavoriteToggleButton productsId={product.id} />
+    return (
+      <section>
+        <BreadCrumbs name={product.name} />
+        <section className="grid lg:grid-cols-2 mt-6 gap-y-6 lg:gap-x-12">
+          {/* Image */}
+          <div className="relative h-full">
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="w-full rounded-md object-cover"
+            />
           </div>
-        
-        <ProductRating Product={product.name}/>
-        <h4 className='text-md p-2 mt-3 rouned-md bg-muted inline-block'>{Price}</h4> 
-        <p className='mt-6 leading-8'>{product.description}</p>
-        <AddToCart productId={product.id}/>
-        </div>
+
+          {/* Product Info */}
+          <div>
+            <div className="flex gap-x-8 items-center">
+              <h2 className="capitalize text-3xl font-bold">{product.name}</h2>
+              <FavoriteToggleButton productId={product.id} />
+            </div>
+            <ProductRating productID={product.id} />
+            <h4 className="text-md p-2 mt-3 rounded-md bg-muted inline-block">{dollarAmount}</h4>
+            <p className="mt-6 text-md leading-8">{product.description}</p>
+            <AddtoCart productID={product.id} />
+          </div>
+        </section>
       </section>
-    </section>
-  )
+    );
+  } catch (error) {
+    // Handle the error (like redirecting or showing a 404 page)
+    return (
+      <section>
+        <h1>Product Not Found</h1>
+      </section>
+    );
+  }
 }
 
-export default productsDetailsPage
+export default ProductDetailsPage;
