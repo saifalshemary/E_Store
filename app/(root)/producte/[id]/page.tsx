@@ -61,7 +61,7 @@ import FavoriteToggleButton from '../../../../components/products/FavoriteToggle
 import ProductRating from '../../../../components/single-product/ProductRating';
 import { formatCurrency } from '../../../../utils/format';
 // import AddToCart from '../../../../components/single-product/AddToCart'; // ✅ مُصحح
-import AddToCart from '@/components/single-product/AddtoCart'; // ✅ مُصحح
+import AddToCart from '@/components/single-product/AddToCart'; // ✅ مُصحح
 
 type PageProps = {
   params: Promise<{
